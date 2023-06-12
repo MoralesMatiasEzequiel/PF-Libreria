@@ -4,7 +4,7 @@ const adminRouter = Router();
 
 adminRouter.get('/', async (req, res) => {
     
-    res.send('dashboard del admin');
+    res.send('Dashboard del Admin');
 });
 
 adminRouter.get('/:id', async (req, res) => {
