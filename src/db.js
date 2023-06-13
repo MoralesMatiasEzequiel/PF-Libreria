@@ -1,8 +1,10 @@
+require('dotenv').config();
+const { URL_MONGODB } = process.env;
 const mongoose = require('mongoose');
 
 
 const mongo = async () => {
-    await mongoose.connect('mongodb+srv://TuLibrito:tulibrito@cluster0.pcizmgc.mongodb.net/?retryWrites=true&w=majority'); 
+    await mongoose.connect(URL_MONGODB);
     console.log('DB listen');
 }
 
