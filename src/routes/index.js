@@ -10,6 +10,4 @@ router.use('/admin', adminRouter);
 router.use('/user', userRouter);
 router.use('/product', productRouter);
 
-
-
 module.exports = router;

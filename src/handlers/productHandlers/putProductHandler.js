@@ -1,6 +1,6 @@
 //importar controllers.
 
-export const putProductHandler = async (req, res) => {
+const putProductHandler = async (req, res) => {
     const { } = req.body;
     try {
       if(!id) res.status(400).json({ error: 'Missing ID' });
@@ -9,3 +9,5 @@ export const putProductHandler = async (req, res) => {
         res.status(400).send({ error: error.message })
     }
 };
+
+module.exports = putProductHandler;

@@ -1,6 +1,7 @@
 const getUserCtrl = require('../../controllers/userCtrls/getUserCtrl');
 
-const getAllProductsHandler = async (req, res) => {
+
+const getUserHandler = async (req, res) => {
     const { title } = req.query;  
 
     try {
@@ -14,4 +15,4 @@ const getAllProductsHandler = async (req, res) => {
     }
 };
 
-module.exports = getAllProductsHandler;
+module.exports = getUserHandler;
