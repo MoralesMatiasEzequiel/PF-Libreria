@@ -1,3 +1,4 @@
+const getProductsCtrl = require('../../controllers/productCtrls/getProductCtrl');
 
 
 export const getProductHandler = async (req, res) => {
