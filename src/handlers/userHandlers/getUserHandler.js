@@ -1,5 +1,6 @@
 const getUserCtrl = require('../../controllers/userCtrls/getUserCtrl');
 
+
 const getUserHandler = async (req, res) => {
     const { title } = req.query;  
 
