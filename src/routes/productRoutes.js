@@ -4,6 +4,6 @@ const postProductHandler = require('../handlers/productHandlers/postProductHandl
 
 const productRouter = Router();
 
-productRouter.post('/', postProductHandler(req, res));
+productRouter.post('/', postProductHandler);
 
 module.exports = productRouter;

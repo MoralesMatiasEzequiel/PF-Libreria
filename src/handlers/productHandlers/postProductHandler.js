@@ -10,7 +10,7 @@ const postProductHandler = async (req, res) => {
             return res.status(400).send({ error: 'Missing data' });
         }
 
-        const newProduct = createProduct(name, brand, stock, price, image, description);
+        const newProduct = await createProduct(name, brand, stock, price, image, description);
 
         res.status(200).json(newProduct);
 
