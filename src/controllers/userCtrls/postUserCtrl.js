@@ -1,7 +1,7 @@
 require('../../db');
 const User = require('../../collections/User');
 
-export const postUserCtrl = async (username, email, password, date) => {
+const postUserCtrl = async (username, email, password, date) => {
     const user = new User({
         username,
         email,
@@ -10,4 +10,6 @@ export const postUserCtrl = async (username, email, password, date) => {
     })
 
     await user.save();
-}
+};
+
+module.exports = postUserCtrl;

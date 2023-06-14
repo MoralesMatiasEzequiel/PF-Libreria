@@ -1,6 +1,6 @@
 const postUserCtrl = require('../../controllers/userCtrls/postUserCtrl');
 
-export const postUserHandler = async (req, res) => {
+const postUserHandler = async (req, res) => {
     
     const { username, email, password, date } = req.body; 
 
@@ -17,3 +17,5 @@ export const postUserHandler = async (req, res) => {
         res.status(400).send({ error: error.message});
     }
 };
+
+module.exports = postUserHandler;
