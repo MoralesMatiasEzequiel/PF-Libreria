@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');  //Un Schema (esquema) son las propiedades que van a tener nuestros datos en la DB.
 
-const productSchema = new Schema ({
+const productSchema = new Schema({
     name: String,
     brand: String,
     stock: Number,
@@ -11,7 +11,5 @@ const productSchema = new Schema ({
     rating: Number,
     featured: Boolean
 });
-
-
 
 module.exports = model('Product', productSchema);
