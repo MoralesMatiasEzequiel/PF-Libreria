@@ -1,6 +1,6 @@
 const getAllProductsCtrl = require('../../controllers/productCtrls/getAllProductsCtrl');
 
-export const getAllProductsHandler = async (req, res) => {
+const getAllProductsHandler = async (req, res) => {
 
     try {
         const products = getAllProductsCtrl();
@@ -12,3 +12,5 @@ export const getAllProductsHandler = async (req, res) => {
         res.status(400).send({ error: error.message});
     }
 };
+
+module.exports = getAllProductsHandler;

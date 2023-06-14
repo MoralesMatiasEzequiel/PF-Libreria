@@ -1,6 +1,8 @@
 require('../../db');
 const Product = require('../../collections/Products');
 
-export const getAllProductsCtrl = async () => {
+const getAllProductsCtrl = async () => {
     return await Product.find();
-}
+};
+
+module.exports = getAllProductsCtrl;

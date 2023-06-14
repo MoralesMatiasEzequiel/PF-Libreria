@@ -1,6 +1,6 @@
 const getUserCtrl = require('../../controllers/userCtrls/getUserCtrl');
 
-export const getAllProductsHandler = async (req, res) => {
+const getUserHandler = async (req, res) => {
     const { title } = req.query;  
 
     try {
@@ -13,3 +13,5 @@ export const getAllProductsHandler = async (req, res) => {
         res.status(400).send({ error: error.message});
     }
 };
+
+module.exports = getUserHandler;

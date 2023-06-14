@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');  //Un Schema (esquema) son las propiedades que van a tener nuestros datos en la DB.
 
-const userSchema = new Schema = ({
+const userSchema = new Schema ({
     username:{
         type: String,
         unique: true, //Con esta opción el nombre será único. 
