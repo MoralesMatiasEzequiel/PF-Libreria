@@ -3,9 +3,8 @@ const getAllProductsCtrl = require('../../controllers/productCtrls/getAllProduct
 const getAllProductsHandler = async (req, res) => {
 
     try {
-        const products = getAllProductsCtrl();
+        const products = await getAllProductsCtrl();
 
-        console.log(products);
         res.status(200).send(products);
 
     } catch (error) {
