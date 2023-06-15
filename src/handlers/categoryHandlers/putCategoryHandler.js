@@ -1,6 +1,6 @@
 const putCategoryCtrl = require('../../controllers/categoryCtrls/putCategory');
 
-const putProductHandler = async (req, res) => {
+const putCategoryHandler = async (req, res) => {
     const { _id, name, subcategories} = req.body;
     try {
       if(!_id) res.status(400).json({ error: 'Missing ID' });
@@ -14,4 +14,4 @@ const putProductHandler = async (req, res) => {
     }
 };
 
-module.exports = putProductHandler;
+module.exports = putCategoryHandler;
