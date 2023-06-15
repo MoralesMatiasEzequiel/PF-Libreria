@@ -32,6 +32,8 @@ const productSchema = new Schema({
     description: String,
     
     rating: Number,
+
+    active: Boolean
 });
 
 module.exports = model('Product', productSchema);
