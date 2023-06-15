@@ -1,5 +1,5 @@
 require('../../db');
-const Product = require('../../collections/Products');
+const Product = require('../../collections/Product');
 
 const putProductCtrl = async (_id, name, brand, stock, price, salePrice, image, description, rating, active) => {
 
