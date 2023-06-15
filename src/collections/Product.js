@@ -33,12 +33,15 @@ const productSchema = new Schema({
     
     rating: Number,
 
-    active: Boolean,
+    active: {
+        type: Boolean,
+        default: true
+    },
 
-    categories: [
+    subcategories: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'Category'
+          ref: 'SubCategory'
         }
     ]
 });
