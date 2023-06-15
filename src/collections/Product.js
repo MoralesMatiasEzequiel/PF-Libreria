@@ -33,7 +33,14 @@ const productSchema = new Schema({
     
     rating: Number,
 
-    active: Boolean
+    active: Boolean,
+
+    categories: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Category'
+        }
+    ]
 });
 
 module.exports = model('Product', productSchema);

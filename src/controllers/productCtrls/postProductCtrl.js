@@ -1,6 +1,6 @@
 const Product = require('../../collections/Product');
 
-const createProduct = async (name, brand, stock, price, salePrice, image, description, rating) => {
+const createProduct = async (name, brand, stock, price, salePrice, image, description, rating, categories) => {
   
     const newProduct = {
       name,
@@ -10,7 +10,8 @@ const createProduct = async (name, brand, stock, price, salePrice, image, descri
       salePrice,
       image,
       description,
-      rating
+      rating,
+      categories
     }
 
     const createdProduct = await Product.create(newProduct);
