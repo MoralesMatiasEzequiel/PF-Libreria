@@ -1,11 +1,10 @@
 require('../../db');
-const Product = require('../../collections/Product');
+const Category = require('../../collections/Category');
 
-const getProductCtrl = async (id) => {
-    const productID = await Product.findOne({_id:id})
+const getCategoryCtrl = async () => {
+    const categories = await Category.find()
     
-    // console.log(productID);
-    return productID;
+    return categories;
 }
 
-module.exports = getProductCtrl;
+module.exports = getCategoryCtrl;

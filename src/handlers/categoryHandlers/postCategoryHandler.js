@@ -16,7 +16,7 @@ const postCategoryHandler = async (req, res) => {
 
     } catch (error) {
         
-        if(error.message) res.status(400).send(error);
+        // if(error.message) res.status(400).send(error);
         res.status(500).send(error.message);
 
     }
