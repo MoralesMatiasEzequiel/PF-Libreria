@@ -5,7 +5,7 @@ const postUserHandler = async (req, res) => {
     const { username, email, password, date } = req.body; 
 
     try {
-        if (!username || !email || !password || !date) {
+        if (!username || !email || !password) {
             return res.status(400).json({ error: 'Missing required data' });
         }
 

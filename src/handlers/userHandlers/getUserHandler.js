@@ -2,12 +2,13 @@ const getUserCtrl = require('../../controllers/userCtrls/getUserCtrl');
 
 
 const getUserHandler = async (req, res) => {
-    const { title } = req.query;  
+    // const { title } = req.query;  
 
     try {
-        const user = await getUserCtrl(title);
+        // const user = await getUserCtrl(title);
+        const user = await getUserCtrl();
 
-        console.log(user);
+        // console.log(user);
         res.status(200).send(user);
 
     } catch (error) {
