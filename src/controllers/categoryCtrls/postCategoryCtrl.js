@@ -9,7 +9,7 @@ const createCategory = async(name, subcategories) => {
 
     const createdCategory = await Category.create(newCategory);
 
-    return createdProduct;
+    return createdCategory;
 };
 
 module.exports = createCategory;
