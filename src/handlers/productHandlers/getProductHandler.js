@@ -1,6 +1,5 @@
 const getProductsCtrl = require('../../controllers/productCtrls/getProductCtrl');
 
-
 const getProductHandler = async (req, res) => {
     const { id } = req.params;
 
@@ -10,7 +9,7 @@ const getProductHandler = async (req, res) => {
         res.status(200).send(product);
 
     } catch (error) {
-        res.status(400).send({ error: error.message, description: `ID not found '${id}'`}); 
+        res.status(400).send({ description: `ID not found '${id}'`}); 
     }
 };
 
