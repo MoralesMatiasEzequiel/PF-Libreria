@@ -6,8 +6,15 @@ const postSubcategoryHandler = async (req, res) => {
 
     try {
         
-        if(!name){
+        if(!name || !categories || categories.length === 0){
             return res.status(400).send({ error: 'Missing data' });
+        }
+
+        if (
+            typeof name !== 'string' ||
+            !Array.isArray(categories)
+        ){
+            return res.status(400).send({ error: 'Incorrect DataType' });
         }
 
         const newSubcategory = await postSubcategoryCtrl(name, categories);
