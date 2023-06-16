@@ -9,7 +9,7 @@ const getProductHandler = async (req, res) => {
         res.status(200).send(product);
 
     } catch (error) {
-        res.status(400).send({ description: `ID not found '${id}'`}); 
+        res.status(400).send({ description: `There's no product with ID: ${id}` }); 
     }
 };
 
