@@ -17,4 +17,6 @@ const subcategorySchema = new Schema({
   }
 });
 
-module.exports = model('Subcategory', subcategorySchema);
+const Subcategory = model('Subcategory', subcategorySchema);
+
+module.exports = { Subcategory, categoryEnum };
