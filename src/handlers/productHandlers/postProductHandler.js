@@ -1,4 +1,4 @@
-const createProduct = require('../../controllers/productCtrls/postProductCtrl');
+const postProductCtrl = require('../../controllers/productCtrls/postProductCtrl');
 
 const postProductHandler = async (req, res) => {
 
@@ -25,7 +25,7 @@ const postProductHandler = async (req, res) => {
             return res.status(400).send({ error: 'Incorrect DataType' });
         }
 
-        const newProduct = await createProduct(name, brand, stock, price, salePrice, image, description, rating, active, subcategories);
+        const newProduct = await postProductCtrl(name, brand, stock, price, salePrice, image, description, rating, active, subcategories);
 
         res.status(200).send(`El producto ${newProduct.name} ha sido creado.`);
 

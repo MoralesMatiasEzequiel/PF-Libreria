@@ -12,7 +12,7 @@ const getUsersHandler = async (req, res) => {
         res.status(200).send(user);
 
     } catch (error) {
-        res.status(400).send({ error: error.message});
+        res.status(500).send({ error: error.message});
     }
 };
 
