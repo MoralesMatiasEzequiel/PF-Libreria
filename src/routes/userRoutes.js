@@ -1,9 +1,18 @@
 const { Router } = require('express');
-const { getUsersHandler, postUserHandler, putUserHandler, deleteUserHandler } = require('../handlers/userHandlers/indexHandlers');
+const { getUsersHandler, getUsersByNameHandler, postUserHandler, putUserHandler, deleteUserHandler } = require('../handlers/userHandlers/indexHandlers');
 
 const userRouter = Router();
 
-userRouter.get('/', getUsersHandler);
+userRouter.get('/', async (req, res) => {
+    
+    const { username } = req.query;
+
+    if (username) {
+        return getUsersByNameHandler(req, res);
+    }
+
+    return getUsersHandler(req, res);
+});
 
 userRouter.post('/', postUserHandler);
 
