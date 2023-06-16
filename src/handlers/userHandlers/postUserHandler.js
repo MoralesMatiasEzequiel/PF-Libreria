@@ -19,7 +19,7 @@ const postUserHandler = async (req, res) => {
 
         const newUser = await postUserCtrl(username, email, password, date)
        
-        res.status(200).send('User created');
+        res.status(200).send('User created!');
 
     } catch (error) {
         res.status(500).send({ error: error.message});
