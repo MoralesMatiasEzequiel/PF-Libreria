@@ -1,12 +1,12 @@
-const getUserCtrl = require('../../controllers/userCtrls/getUserCtrl');
+const getUsersCtrl = require('../../controllers/userCtrls/getUsersCtrl');
 
 
-const getUserHandler = async (req, res) => {
+const getUsersHandler = async (req, res) => {
     // const { title } = req.query;  
 
     try {
         // const user = await getUserCtrl(title);
-        const user = await getUserCtrl();
+        const user = await getUsersCtrl();
 
         // console.log(user);
         res.status(200).send(user);
@@ -16,4 +16,4 @@ const getUserHandler = async (req, res) => {
     }
 };
 
-module.exports = getUserHandler;
+module.exports = getUsersHandler;
