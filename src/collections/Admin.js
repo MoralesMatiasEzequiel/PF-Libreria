@@ -8,11 +8,6 @@ const adminSchema = new Schema ({
     },
     email:{
         type: String,
-        unique: true, 
-        require: true 
-    },
-    email:{
-        type: Number,
         require: true 
     }
 });
