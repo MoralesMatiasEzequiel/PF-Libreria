@@ -1,4 +1,6 @@
 const postProductCtrl = require('../../controllers/productCtrls/postProductCtrl');
+const putProductCtrl = require('../../controllers/productCtrls/putProductCtrl');
+const Product = require('../../collections/Product');
 
 const postProductHandler = async (req, res) => {
   const { name, brand, stock, price, salePrice, image, description, rating, active, subcategories } = req.body;
@@ -21,6 +23,16 @@ const postProductHandler = async (req, res) => {
       (subcategories && !Array.isArray(subcategories))
     ) {
       return res.status(400).send({ error: 'Incorrect DataType' });
+    }
+
+    let existingProduct = await Product.findOne({ name, active: false });
+
+    if (existingProduct) {
+      existingProduct.active = true;
+      await existingProduct.save();
+      const _id = existingProduct._id;
+      await putProductCtrl(_id, name, brand, stock, price, salePrice, image, description, rating, active, subcategories);
+      return res.status(200).send(`El producto ${existingProduct.name} ha sido reactivado y actualizado.`);
     }
 
     const newProduct = await postProductCtrl(name, brand, stock, price, salePrice, image, description, rating, active, subcategories);
