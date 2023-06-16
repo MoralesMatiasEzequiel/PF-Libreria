@@ -1,4 +1,4 @@
-const Subcategory = require('../../collections/SubCategory');
+const { Subcategory } = require('../../collections/SubCategory');
 
 const createSubcategory = async (name, categories) => {
   
