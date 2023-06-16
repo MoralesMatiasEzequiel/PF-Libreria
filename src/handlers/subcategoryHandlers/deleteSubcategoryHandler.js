@@ -9,7 +9,7 @@ const deleteSubcategoryHandler = async (req, res) => {
         res.status(200).send(deleted);
 
     } catch (error) {
-       return res.status(500).json({ error: error.message, description: `Correctly enter the ID you want to delete` }) //"Introduce correctamente el ID que quieres eliminar".
+       return res.status(500).json({ description: `There's no subcategory with ID: ${_id}` });
     }
 };
 
