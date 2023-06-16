@@ -7,7 +7,7 @@ const getProductByNameHandler = async (req, res) => {
         const productByName = await getProductByNameCtrl(name);
 
         if (productByName.length === 0) {
-            return res.status(404).send(`No product found with that name: "${name}"`);
+            return res.status(404).send(`No product found with name: "${name}"`);
         }
 
         res.status(200).send(productByName);
