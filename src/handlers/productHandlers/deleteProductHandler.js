@@ -1,13 +1,15 @@
-//importar controllers.
+const deleteProductCtrl = require('../../controllers/productCtrls/deleteProductCtrl')
 
 const deleteProductHandler = async (req, res) => {
-    const { id } = req.params;
+    const { _id } = req.params;
 
     try {
-    
+        const deleted = await deleteProductCtrl(_id);
+
+        res.status(200).send(`Product has been deleted`);
 
     } catch (error) {
-       return res.status(500).json({ error: error.message, description: `Correctly enter the ID you want to delete` }) //"Introduce correctamente el ID que quieres eliminar".
+       return res.status(500).json({ description: `There's no product with ID: ${_id}` });
     }
 };
 

@@ -32,6 +32,18 @@ const productSchema = new Schema({
     description: String,
     
     rating: Number,
+
+    active: {
+        type: Boolean,
+        default: true
+    },
+
+    subcategories: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'SubCategory'
+        }
+    ]
 });
 
 module.exports = model('Product', productSchema);

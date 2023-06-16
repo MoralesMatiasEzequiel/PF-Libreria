@@ -1,11 +1,15 @@
 const { Router } = require('express');
-const { getUserHandler, postUserHandler } = require('../handlers/userHandlers/indexHandlers');
+const { getUsersHandler, postUserHandler, putUserHandler, deleteUserHandler } = require('../handlers/userHandlers/indexHandlers');
 
 const userRouter = Router();
 
-userRouter.get('/', getUserHandler);
+userRouter.get('/', getUsersHandler);
 
 userRouter.post('/', postUserHandler);
+
+userRouter.put('/', putUserHandler);
+
+userRouter.delete('/:id', deleteUserHandler);
 
 
 module.exports = userRouter;

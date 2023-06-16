@@ -1,6 +1,6 @@
-const Product = require('../../collections/Products');
+const Product = require('../../collections/Product');
 
-const createProduct = async (name, brand, stock, price, salePrice, image, description, rating) => {
+const postProductCtrl = async (name, brand, stock, price, salePrice, image, description, rating, active, subcategories) => {
   
     const newProduct = {
       name,
@@ -10,7 +10,9 @@ const createProduct = async (name, brand, stock, price, salePrice, image, descri
       salePrice,
       image,
       description,
-      rating
+      rating,
+      active,
+      subcategories
     }
 
     const createdProduct = await Product.create(newProduct);
@@ -18,4 +20,4 @@ const createProduct = async (name, brand, stock, price, salePrice, image, descri
     return createdProduct;
 };
 
-module.exports = createProduct;
+module.exports = postProductCtrl;
