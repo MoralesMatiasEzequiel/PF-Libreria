@@ -6,10 +6,10 @@ const deleteUserHandler = async (req, res) => {
     try {
         const deleted = await deleteUserCtrl(_id);
 
-        res.status(200).send(deleted);
+        res.status(200).send(`User has been deleted`);
 
     } catch (error) {
-       return res.status(500).json({ error: error.message, description: `Correctly enter the ID you want to delete` }) //"Introduce correctamente el ID que quieres eliminar".
+       return res.status(500).json({ description: `There's no user with ID: ${_id}` }) //"Introduce correctamente el ID que quieres eliminar".
     }
 };
 

@@ -19,7 +19,11 @@ const userSchema = new Schema ({
         type: Date,
         default: new Date() // Fecha de creacion de cuenta del usuario. Si el usuario no ingresa una fecha, por defecto se podrá la fecha actual. 
     },
-    active: Boolean
+    
+    active: {
+        type: Boolean,
+        default: true
+    }
 });
 
 

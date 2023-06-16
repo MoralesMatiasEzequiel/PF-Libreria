@@ -1,11 +1,11 @@
-const getSubcategoryHandler = require('./getSubcategoryHandler')
+const getSubcategoriesHandler = require('./getSubcategoriesHandler')
 const postSubcategoryHandler = require('./postSubcategoryHandler');
 const putSubcategoryHandler = require('./putSubcategoryHandler');
 const deleteSubcategoryHandler = require('./deleteSubcategoryHandler')
 
 
 module.exports = {
-    getSubcategoryHandler,
+    getSubcategoriesHandler,
     postSubcategoryHandler,
     putSubcategoryHandler,
     deleteSubcategoryHandler

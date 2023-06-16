@@ -1,6 +1,6 @@
 const Product = require('../../collections/Product');
 
-const createProduct = async (name, brand, stock, price, salePrice, image, description, rating, active, subcategories) => {
+const postProductCtrl = async (name, brand, stock, price, salePrice, image, description, rating, active, subcategories) => {
   
     const newProduct = {
       name,
@@ -20,4 +20,4 @@ const createProduct = async (name, brand, stock, price, salePrice, image, descri
     return createdProduct;
 };
 
-module.exports = createProduct;
+module.exports = postProductCtrl;

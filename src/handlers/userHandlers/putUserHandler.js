@@ -5,12 +5,21 @@ const putUserHandler = async (req, res) => {
     try {
       if(!_id) res.status(400).json({ error: 'Missing ID' });
 
+      if (
+        typeof username !== 'string' ||
+        typeof email !== 'string' ||
+        typeof password !== 'string' |     
+        typeof active !== 'boolean'
+      ){
+        return res.status(400).send({ error: 'Incorrect DataType' });
+      }
+
       const userUpdate = await putUserCtrl(_id, username, email, password, active)
     
-      res.status(200).send(userUpdate);
+      res.status(200).send(`El usuario ha sido actualizado`);
 
     } catch (error) {
-        res.status(400).send({ error: error.message })
+        res.status(500).send({ error: error.message })
     }
 };
 

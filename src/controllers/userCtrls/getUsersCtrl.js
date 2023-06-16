@@ -7,10 +7,10 @@ const User = require('../../collections/User');
 //     }
 // };
 
-const getUserCtrl = async () => {
+const getUsersCtrl = async () => {
     const users = await User.find();
     
     return users;
 };
 
-module.exports = getUserCtrl;
+module.exports = getUsersCtrl;
