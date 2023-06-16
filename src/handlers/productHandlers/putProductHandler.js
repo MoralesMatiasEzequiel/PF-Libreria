@@ -6,17 +6,17 @@ const putProductHandler = async (req, res) => {
       if(!_id) res.status(400).json({ error: 'Missing ID' });
 
       if (
-        typeof name !== 'string' ||
-        typeof brand !== 'string' ||
-        typeof stock !== 'number' ||
-        typeof price !== 'number' ||
-        typeof salePrice !== 'number' ||
-        typeof image !== 'string' ||
-        typeof description !== 'string' ||
-        typeof rating !== 'number' ||
-        typeof active !== 'boolean' ||
-        !Array.isArray(subcategories)
-      ){
+        (name && typeof name !== 'string') ||
+        (brand && typeof brand !== 'string') ||
+        (stock && typeof stock !== 'number') ||
+        (price && typeof price !== 'number') ||
+        (salePrice && typeof salePrice !== 'number') ||
+        (image && typeof image !== 'string') ||
+        (description && typeof description !== 'string') ||
+        (rating && typeof rating !== 'number') ||
+        (active && typeof active !== 'boolean') ||
+        (subcategories && !Array.isArray(subcategories))
+    ){
         return res.status(400).send({ error: 'Incorrect DataType' });
       }
       

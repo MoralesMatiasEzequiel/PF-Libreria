@@ -6,8 +6,8 @@ const putSubcategoryHandler = async (req, res) => {
       if(!_id) res.status(400).json({ error: 'Missing ID' });
 
       if (
-        typeof name !== 'string' ||
-        !Array.isArray(categories)
+        (name && typeof name !== 'string') ||
+        (categories && !Array.isArray(categories))
       ){
         return res.status(400).send({ error: 'Incorrect DataType' });
       }

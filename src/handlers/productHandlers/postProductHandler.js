@@ -6,7 +6,7 @@ const postProductHandler = async (req, res) => {
 
     try {
         
-        if(!name || !brand || !stock || !price || !image || !subcategories){
+        if(!name || !brand || !stock || !price || !image){
             return res.status(400).send({ error: 'Missing data' });
         }
 
@@ -15,12 +15,12 @@ const postProductHandler = async (req, res) => {
             typeof brand !== 'string' ||
             typeof stock !== 'number' ||
             typeof price !== 'number' ||
-            typeof salePrice !== 'number' ||
+            (salePrice && typeof salePrice !== 'number') ||
             typeof image !== 'string' ||
-            typeof description !== 'string' ||
-            typeof rating !== 'number' ||
-            typeof active !== 'boolean' ||
-            !Array.isArray(subcategories)
+            (description && typeof description !== 'string') ||
+            (rating && typeof rating !== 'number') ||
+            (active && typeof active !== 'boolean') ||
+            (subcategories && !Array.isArray(subcategories))
         ){
             return res.status(400).send({ error: 'Incorrect DataType' });
         }

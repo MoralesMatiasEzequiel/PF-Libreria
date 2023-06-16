@@ -6,10 +6,10 @@ const putUserHandler = async (req, res) => {
       if(!_id) res.status(400).json({ error: 'Missing ID' });
 
       if (
-        typeof username !== 'string' ||
-        typeof email !== 'string' ||
-        typeof password !== 'string' |     
-        typeof active !== 'boolean'
+        (username && typeof username !== 'string') ||
+        (email && typeof email !== 'string') ||
+        (password && typeof password !== 'string') |     
+        (active && typeof active !== 'boolean')
       ){
         return res.status(400).send({ error: 'Incorrect DataType' });
       }
