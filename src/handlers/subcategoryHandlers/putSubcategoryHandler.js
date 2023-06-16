@@ -5,12 +5,19 @@ const putSubcategoryHandler = async (req, res) => {
     try {
       if(!_id) res.status(400).json({ error: 'Missing ID' });
 
+      if (
+        typeof name !== 'string' ||
+        !Array.isArray(categories)
+      ){
+        return res.status(400).send({ error: 'Incorrect DataType' });
+      }
+
       const subcategoryUpdate = await putSubcategoryCtrl(_id, name, categories);
     
       res.status(200).send(subcategoryUpdate);
 
     } catch (error) {
-        res.status(400).send({ error: error.message });
+        res.status(500).send(error.message);
     }
 };
 
