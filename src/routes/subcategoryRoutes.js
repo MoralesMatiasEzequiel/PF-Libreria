@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { categoryEnum } = require('../collections/SubCategory');
 
-const { getSubcategoryHandler, postSubcategoryHandler, putSubcategoryHandler } = require('../handlers/subcategoryHandlers/indexHandlers');
+const { getSubcategoryHandler, postSubcategoryHandler, putSubcategoryHandler, deleteSubcategoryHandler } = require('../handlers/subcategoryHandlers/indexHandlers');
 
 const subcategoryRouter = Router();
 
@@ -11,6 +11,7 @@ subcategoryRouter.post('/', postSubcategoryHandler);
 
 subcategoryRouter.put('/', putSubcategoryHandler);
 
+subcategoryRouter.delete('/:id', deleteSubcategoryHandler);
 
 //esta ruta sirve para traerse las categorías hacia Nav2
 

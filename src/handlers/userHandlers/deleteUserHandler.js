@@ -1,10 +1,10 @@
-const deleteProductCtrl = require('../../controllers/productCtrls/deleteProductCtrl')
+const deleteUserCtrl = require('../../controllers/userCtrls/deleteUserCtrl');
 
-const deleteProductHandler = async (req, res) => {
+const deleteUserHandler = async (req, res) => {
     const { _id } = req.params;
 
     try {
-        const deleted = await deleteProductCtrl(_id);
+        const deleted = await deleteUserCtrl(_id);
 
         res.status(200).send(deleted);
 
@@ -13,4 +13,4 @@ const deleteProductHandler = async (req, res) => {
     }
 };
 
-module.exports = deleteProductHandler;
+module.exports = deleteUserHandler;
