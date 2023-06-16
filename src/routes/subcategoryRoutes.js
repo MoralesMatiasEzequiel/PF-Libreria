@@ -1,11 +1,11 @@
 const { Router } = require('express');
 const { categoryEnum } = require('../collections/SubCategory');
 
-const { getSubcategoryHandler, postSubcategoryHandler, putSubcategoryHandler, deleteSubcategoryHandler } = require('../handlers/subcategoryHandlers/indexHandlers');
+const { getSubcategoriesHandler, postSubcategoryHandler, putSubcategoryHandler, deleteSubcategoryHandler } = require('../handlers/subcategoryHandlers/indexHandlers');
 
 const subcategoryRouter = Router();
 
-subcategoryRouter.get('/', getSubcategoryHandler);
+subcategoryRouter.get('/', getSubcategoriesHandler);
 
 subcategoryRouter.post('/', postSubcategoryHandler);
 
