@@ -39,7 +39,11 @@ Admin:
 
 - get: trae todos los productos
 
-- get?name=name: trae todos los que coincidan con el nombre enviado por query
+- get?query: trae todos los productos que coincidan con la query enviada. Admite búsqueda por name (uno solo), búsqueda por brand (pueden ser varias) y búsqueda por subcategories (que también pueden ser varias). Por ejemplo:
+
+/product?name=lapicera&brand=mapped&subcategories=648b9c766adad466939d06cf&subcategories=648ba2683dfcfa44bc428402
+
+traerá todas los productos que contengan "lapicera" en su nombre, que sean marca mapped y que pertenezcan a cualquiera de esas dos subcategorías.
 
 - get/:id: trae un producto por id
 
