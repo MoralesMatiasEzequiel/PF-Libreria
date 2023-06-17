@@ -3,7 +3,7 @@ const Product = require('../../collections/Product');
 
 const getProductsFilteredCtrl = async (name, brand, subcategories) => {
   
-  const query = {};
+  const query = { active: true };
   
   if (name) {
     query.name = { $regex: name, $options: 'i' };
