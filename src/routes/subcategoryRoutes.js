@@ -11,7 +11,7 @@ subcategoryRouter.post('/', postSubcategoryHandler);
 
 subcategoryRouter.put('/', putSubcategoryHandler);
 
-subcategoryRouter.delete('/:id', deleteSubcategoryHandler);
+subcategoryRouter.delete('/:_id', deleteSubcategoryHandler);
 
 //esta ruta sirve para traerse las categorías hacia Nav2
 
