@@ -9,10 +9,10 @@ const subcategorySchema = new Schema({
     required: true,
     validate: {
       validator: function (value) {
-        return /^[A-Za-z\s]+$/.test(value);
-    },
+        return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+      },
       message: 'Invalid name'
-  }
+    }
   },
   categories: {
     type: [{

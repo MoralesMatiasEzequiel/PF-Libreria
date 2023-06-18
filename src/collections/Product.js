@@ -6,7 +6,13 @@ const productSchema = new Schema({
     name: {
         type: String,
         unique: true,
-        require: true 
+        require: true,
+        validate: {
+            validator: function (value) {
+              return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+            },
+            message: 'Invalid name'
+        } 
     },
     
     brand: {
@@ -14,7 +20,7 @@ const productSchema = new Schema({
         require: true,
         validate: {
             validator: function (value) {
-              return /^[A-Za-z\s]+$/.test(value);
+                return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
             },
             message: 'Invalid brand'
         } 
