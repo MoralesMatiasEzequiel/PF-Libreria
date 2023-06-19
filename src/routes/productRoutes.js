@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getProductsHandler, getProductByIdHandler, getProductsFilteredHandler, postProductHandler, putProductHandler, deleteProductHandler } = require('../handlers/productHandlers/indexHandlers');
+const { getProductsHandler, getProductByIdHandler, getProductsFilteredHandler, getProductsSaleHandler, getProductsRatingHandler, postProductHandler, putProductHandler, deleteProductHandler } = require('../handlers/productHandlers/indexHandlers');
 
 const productRouter = Router();
 
@@ -12,6 +12,10 @@ productRouter.get('/', async (req, res) => {
 
   return getProductsHandler(req, res);
 });
+
+productRouter.get('/sale', getProductsSaleHandler);
+
+productRouter.get('/rating', getProductsRatingHandler);
 
 productRouter.get('/:id', getProductByIdHandler);
 
