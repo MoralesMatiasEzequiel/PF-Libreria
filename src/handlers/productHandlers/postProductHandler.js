@@ -11,19 +11,34 @@ const postProductHandler = async (req, res) => {
     }
 
     if (
-      typeof name !== 'string' ||
-      typeof brand !== 'string' ||
-      typeof stock !== 'number' ||
-      typeof price !== 'number' ||
-      (salePrice && typeof salePrice !== 'number') ||
-      typeof image !== 'string' ||
-      (description && typeof description !== 'string') ||
-      (rating && typeof rating !== 'number') ||
-      (active && typeof active !== 'boolean') ||
-      (subcategories && !Array.isArray(subcategories))
-    ) {
-      return res.status(400).send({ error: 'Incorrect DataType' });
+      typeof name !== 'string') {
+      return res.status(400).send({ error: 'Incorrect DataType - name' });
     }
+    if (typeof image !== 'string') {
+      return res.status(400).send({ error: 'Incorrect DataType - image' });
+    }
+    if (rating && typeof rating !== 'number') {
+      return res.status(400).send({ error: 'Incorrect DataType - rating' });
+    }
+    if (active && typeof active !== 'boolean') {
+      return res.status(400).send({ error: 'Incorrect DataType - active' });
+    }
+    if (typeof brand !== 'string') {
+      return res.status(400).send({ error: 'Incorrect DataType - brand' });
+    }
+    if (typeof price !== 'number') {
+      return res.status(400).send({ error: 'Incorrect DataType - price' });
+    }
+    if (subcategories && !Array.isArray(subcategories)) {
+      return res.status(400).send({ error: 'Incorrect DataType - SubCategories' });
+    }
+    if (salePrice && typeof salePrice !== 'number') {
+      return res.status(400).send({ error: 'Incorrect DataType - salePrice' });
+    }
+    if (description && typeof description !== 'string') {
+      return res.status(400).send({ error: 'Incorrect DataType - SubCategories - description' });
+    }
+
 
     let existingProduct = await Product.findOne({ name, active: false });
 
@@ -37,8 +52,8 @@ const postProductHandler = async (req, res) => {
 
     const newProduct = await postProductCtrl(name, brand, stock, price, salePrice, image, description, rating, active, subcategories);
 
-    res.status(200).send(`El producto ${newProduct.name} ha sido creado.`);
-    
+    res.status(200).send(newProduct);
+
   } catch (error) {
     if (error.code === 11000 && error.keyPattern && error.keyPattern.name) {
       return res.status(409).send({ error: 'Product with the same name already exists' });
