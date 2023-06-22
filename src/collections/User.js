@@ -37,7 +37,28 @@ const userSchema = new Schema ({
     active: {
         type: Boolean,
         default: true
-    }
+    },
+
+    reviews: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Review'
+        }
+    ],
+
+    favorites: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Product'
+        }
+    ],
+
+    orders: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Order'
+        }
+    ]
 });
 
 
