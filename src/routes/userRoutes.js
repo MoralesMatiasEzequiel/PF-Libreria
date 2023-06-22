@@ -1,4 +1,3 @@
-const { requiresAuth } = require('express-openid-connect');
 const { Router } = require('express');
 const { getUsersHandler, getUsersByNameHandler, postUserHandler, putUserHandler, deleteUserHandler } = require('../handlers/userHandlers/indexHandlers');
 
@@ -17,7 +16,7 @@ userRouter.get('/', async (req, res) => {
 
 userRouter.post('/', postUserHandler);
 
-userRouter.put('/', requiresAuth(), putUserHandler);
+userRouter.put('/', putUserHandler);
 
 userRouter.delete('/:id', deleteUserHandler);
 
