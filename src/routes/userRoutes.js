@@ -3,16 +3,16 @@ const { getUsersHandler, getUsersByNameHandler, postUserHandler, putUserHandler,
 
 const userRouter = Router();
 
-userRouter.get('/', async (req, res) => {
+// userRouter.get('/', async (req, res) => {
     
-    const { username } = req.query;
+//     const { username } = req.query;
 
-    if (username) {
-        return getUsersByNameHandler(req, res);
-    }
+//     if (username) {
+//         return getUsersByNameHandler(req, res);
+//     }
 
-    return getUsersHandler(req, res);
-});
+//     return getUsersHandler(req, res);
+// });
 
 userRouter.post('/', postUserHandler);
 

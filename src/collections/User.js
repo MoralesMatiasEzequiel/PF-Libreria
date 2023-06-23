@@ -2,11 +2,20 @@ const { Schema, model } = require('mongoose');  //Un Schema (esquema) son las pr
 const validator = require('validator'); //Nos traemos todas las validaciones de la librería 'Validator' de npmjs.
 
 const userSchema = new Schema ({
-    username:{
+    name:{
         type: String,
-        unique: true, //Con esta opción el nombre será único. 
         require: true, //El nombre es requerido para poder crear la cuenta.
     },
+
+    nickname:{
+        type: String,
+        require: true
+    },
+
+    surname:{
+        type: String,
+    },
+
     email:{
         type: String,
         unique: true, 
@@ -18,17 +27,17 @@ const userSchema = new Schema ({
             message: 'Invalid email'
         } 
     },
-    password:{
+
+    picture:{
         type: String,
-        require: true,
-        validate: {
-            validator: function (value) {
-              // Verificar que la contraseña tenga al menos 6 caracteres
-              return value.length >= 6;
-            },
-            message: 'Password must be at least 6 characters'
-        }
+        require: true
     },
+
+    emailVerified:{
+        type: Boolean,
+        require: true
+    },
+
     date: {
         type: Date,
         default: new Date() // Fecha de creacion de cuenta del usuario. Si el usuario no ingresa una fecha, por defecto se podrá la fecha actual. 
