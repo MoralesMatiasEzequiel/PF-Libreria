@@ -2,7 +2,7 @@ const mercadopago = require('mercadopago');
 
 const getCreateOrderCtrls = async () => {
     mercadopago.configure({
-        access_token: "TEST-5116269963303137-062117-3441827cf5cacf1bd57172be7f8d5ede-1404349325"
+        access_token: "TEST-7273759822704315-062219-6d2a1fb0b437e337c97d2cc1c77bae5e-1405802464"
     });
 
     const result = await mercadopago.preferences.create({ //Aquí creamos una orden de compra
@@ -19,7 +19,7 @@ const getCreateOrderCtrls = async () => {
             failure: "http://localhost:3000/mercadopago/failure",
             pending: "http://localhost:3000/mercadopago/pending",
         },
-        notification_url: "http://localhost:3000/mercadopago/webhook",  //Aquí se notifica cuando el pago ya este hecho.  
+        // notification_url: "http://localhost:3000/mercadopago/webhook",  //Aquí se notifica cuando el pago ya este hecho.  
     })
     // console.log(result);
     return result;
