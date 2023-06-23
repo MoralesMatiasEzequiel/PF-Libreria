@@ -5,10 +5,10 @@ const userRouter = Router();
 
 userRouter.get('/', async (req, res) => {
     
-    const { username } = req.query;
+    const { name } = req.query;
     const { email } = req.query;
 
-    if (username) {
+    if (name) {
         return getUsersByNameHandler(req, res);
     }
 
