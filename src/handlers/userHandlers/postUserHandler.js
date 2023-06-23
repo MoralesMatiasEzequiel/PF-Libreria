@@ -1,4 +1,5 @@
 const postUserCtrl = require('../../controllers/userCtrls/postUserCtrl');
+const getUserByEmailCtrl = require('../../controllers/userCtrls/getUserByEmailCtrl');
 
 const postUserHandler = async (req, res) => {
     
@@ -17,6 +18,12 @@ const postUserHandler = async (req, res) => {
             typeof emailVerified !== 'boolean'
         ){
             return res.status(400).send({ error: 'Incorrect DataType' });
+        }
+
+        const existUser = await getUserByEmailCtrl(email);
+
+        if(existUser){
+            return res.status(200).send('User found on database');
         }
 
         const newUser = await postUserCtrl(name, nickname, email, picture, emailVerified)
