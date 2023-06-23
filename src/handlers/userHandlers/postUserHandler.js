@@ -14,7 +14,7 @@ const postUserHandler = async (req, res) => {
             typeof nickname !== 'string' ||
             typeof email !== 'string' ||
             typeof picture !== 'string' ||
-            typeof emailVerified !== 'string'
+            typeof emailVerified !== 'boolean'
         ){
             return res.status(400).send({ error: 'Incorrect DataType' });
         }
