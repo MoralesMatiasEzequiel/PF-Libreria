@@ -1,14 +1,14 @@
 const { Router } = require('express');
-const { getCreateOrderHandler } = require('../handlers/mercadopagoHandlers/indexHandlers');
+const { getCreateOrderHandler, getSuccessHandler, getFailureHandler } = require('../handlers/mercadopagoHandlers/indexHandlers');
 
 
 const mercadoPagoRouter = Router();
 
 mercadoPagoRouter.post('/create-order', getCreateOrderHandler);
 
-mercadoPagoRouter.get('/success', );
+mercadoPagoRouter.get('/success', getSuccessHandler);
 
-mercadoPagoRouter.get('/failure', );
+mercadoPagoRouter.get('/failure', getFailureHandler);
 
 mercadoPagoRouter.get('/pending', );
 

@@ -1,14 +1,22 @@
 const getCreateOrderCtrls = require('../../controllers/mercadopagoCtrls/getCreateOrderCtrls')
 
 const getCreateOrderHandler = async (req, res) => {
+    
+    const data = req.body;
 
     try {
-        const createOrder = await getCreateOrderCtrls();
+        if (!data || data.length === 0) { 
+            return res.status(400).json({ error: 'Missing data required' });
+        }
 
-        res.status(200).send(createOrder.body);
+        // console.log(data);
+        const createOrder = await getCreateOrderCtrls(data);
+        const paymentLink = createOrder.body.init_point;
+
+        res.status(200).send(paymentLink);
 
     } catch (error) {
-       return res.status(500).json('Error create orden');
+       return res.status(500).json('Error create order');
     }
 };
 
