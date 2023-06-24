@@ -12,6 +12,7 @@ const getCreateOrderCtrls = async (data) => {
         currency_id: "ARS",
         quantity: 1,
       };
+
     });
 
     const result = await mercadopago.preferences.create({ //Aquí creamos una orden de compra
@@ -21,7 +22,6 @@ const getCreateOrderCtrls = async (data) => {
             failure: "http://localhost:3000/mercadopago/failure",
             pending: "http://localhost:3000/mercadopago/pending",
         },
-        // notification_url: "http://localhost:3001/mercadopago/webhook",  //Aquí se notifica cuando el pago ya este hecho.  
     })
     // console.log(result.init_point);
     return result;

@@ -1,23 +1,32 @@
 const postUserCtrl = require('../../controllers/userCtrls/postUserCtrl');
+const getUserByEmailCtrl = require('../../controllers/userCtrls/getUserByEmailCtrl');
 
 const postUserHandler = async (req, res) => {
     
-    const { username, email, password, date } = req.body; 
+    const {name, nickname, email, picture, emailVerified} = req.body; 
 
     try {
-        if (!username || !email || !password) {
+        if (!name || !nickname || !email || !picture || !emailVerified) {
             return res.status(400).json({ error: 'Missing required data' });
         }
         
         if (
-            typeof username !== 'string' ||
+            typeof name !== 'string' ||
+            typeof nickname !== 'string' ||
             typeof email !== 'string' ||
-            typeof password !== 'string'
+            typeof picture !== 'string' ||
+            typeof emailVerified !== 'boolean'
         ){
             return res.status(400).send({ error: 'Incorrect DataType' });
         }
 
-        const newUser = await postUserCtrl(username, email, password, date)
+        const existUser = await getUserByEmailCtrl(email);
+
+        if(existUser){
+            return res.status(200).send('User found on database');
+        }
+
+        const newUser = await postUserCtrl(name, nickname, email, picture, emailVerified)
        
         res.status(200).send('User created!');
 
