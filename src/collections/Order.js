@@ -5,33 +5,34 @@ const orderSchema = new Schema({
     email:{
         type: String,
         require: true,
-        validate: {
-            validator: function (value) {
-              return validator.isEmail(value);
-            },
-            message: 'Invalid email'
-        } 
+        // validate: {
+        //     validator: function (value) {
+        //       return validator.isEmail(value);
+        //     },
+        //     message: 'Invalid email'
+        // } 
     },
     
     name: {
         type: String,
-        validate: {
-            validator: function (value) {
-              return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
-            },
-            message: 'Invalid name'
-        } 
+        require: true
+        // validate: {
+        //     validator: function (value) {
+        //       return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+        //     },
+        //     message: 'Invalid name'
+        // } 
     },
 
     surname: {
         type: String,
         require: true,
-        validate: {
-            validator: function (value) {
-              return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
-            },
-            message: 'Invalid name'
-        } 
+        // validate: {
+        //     validator: function (value) {
+        //       return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+        //     },
+        //     message: 'Invalid name'
+        // } 
     },
     
     phone: {
@@ -47,12 +48,12 @@ const orderSchema = new Schema({
     street: {
         type: String,
         require: true,
-        validate: {
-            validator: function (value) {
-              return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
-            },
-            message: 'Invalid street'
-        } 
+        // validate: {
+        //     validator: function (value) {
+        //       return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+        //     },
+        //     message: 'Invalid street'
+        // } 
     },
 
     number: {
@@ -62,12 +63,12 @@ const orderSchema = new Schema({
 
     floor: {  //piso del dpto.
         type: String,
-        validate: {
-            validator: function (value) {
-              return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
-            },
-            message: 'Invalid floor'
-        } 
+        // validate: {
+        //     validator: function (value) {
+        //       return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+        //     },
+        //     message: 'Invalid floor'
+        // } 
     },
 
     apartment: { 
@@ -83,33 +84,33 @@ const orderSchema = new Schema({
     province: { 
         type: String,
         require: true,
-        validate: {
-            validator: function (value) {
-              return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
-            },
-            message: 'Invalid province'
-        } 
+        // validate: {
+        //     validator: function (value) {
+        //       return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+        //     },
+        //     message: 'Invalid province'
+        // } 
     },
 
     city: { 
         type: String,
         require: true,
-        validate: {
-            validator: function (value) {
-              return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
-            },
-            message: 'Invalid province'
-        } 
+        // validate: {
+        //     validator: function (value) {
+        //       return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+        //     },
+        //     message: 'Invalid province'
+        // } 
     },
 
     comentary: { 
         type: String,
-        validate: {
-            validator: function (value) {
-              return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
-            },
-            message: 'Invalid province'
-        } 
+        // validate: {
+        //     validator: function (value) {
+        //       return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+        //     },
+        //     message: 'Invalid province'
+        // } 
     },
     
     products: [
@@ -122,12 +123,12 @@ const orderSchema = new Schema({
     finalPrice: {
         type: Number,
         require: true,
-        validate: {
-            validator: function (value) {
-              return Number.isInteger(value) && value >= 0;
-            },
-            message: 'Invalid final price'
-        }
+        // validate: {
+        //     validator: function (value) {
+        //       return Number.isInteger(value) && value >= 0;
+        //     },
+        //     message: 'Invalid final price'
+        // }
     }
 
 });
