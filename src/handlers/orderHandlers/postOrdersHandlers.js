@@ -40,7 +40,7 @@ const postOrdersHandler = async (req, res) => {
 
     const newOrder = await postOrderCtrl(email, name, surname, phone, dni, street, number, floor, apartment, province, city, comentary, products, finalPrice);
 
-    res.status(200).send(newOrder);
+    res.status(200).send('Orden creada');
 
   } catch (error) {
     if (error.code === 11000 && error.keyPattern && error.keyPattern.name) {
