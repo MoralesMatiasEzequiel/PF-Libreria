@@ -6,6 +6,6 @@ const orderFormRouter = Router();
 
 orderFormRouter.get('/', getOrdersHandler);
 
-orderFormRouter.post('/create', postOrdersHandler);
+orderFormRouter.post('/', postOrdersHandler);
 
 module.exports = orderFormRouter;
