@@ -1,11 +1,7 @@
 const { Schema, model } = require('mongoose');  
-const validator = require('validator'); 
-
+const validator = require('validator');
 
 const orderSchema = new Schema({
-    orderNro: {
-        type: Number
-    },
     email:{
         type: String,
         unique: true, 
@@ -44,7 +40,7 @@ const orderSchema = new Schema({
         require: true,
     },
     
-    dniCuit: {
+    dni: {
         type: String,
         require: true,
     },
@@ -60,8 +56,9 @@ const orderSchema = new Schema({
         } 
     },
 
-    numberStreet: {
+    number: {
         type: String,
+        require: true
     },
 
     floor: {  //piso del dpto.
@@ -74,14 +71,14 @@ const orderSchema = new Schema({
         } 
     },
 
-    aparment: { 
+    apartment: { 
         type: String,
-        validate: {
-            validator: function (value) {
-              return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
-            },
-            message: 'Invalid floor'
-        } 
+        // validate: {
+        //     validator: function (value) {
+        //       return /^[A-Za-zÁÉÍÓÚáéíóú\s]+$/.test(value);
+        //     },
+        //     message: 'Invalid floor'
+        // } 
     },
 
     province: { 

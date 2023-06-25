@@ -1,18 +1,17 @@
 const Order = require('../../collections/Order');
 
-const postOrderCtrl = async (orderNro, email, name, surname, phone, dniCuit, street, numberStreet, floor, aparment, province, city, comentary, products, finalPrice) => {
+const postOrderCtrl = async (email, name, surname, phone, dni, street, number, floor, apartment, province, city, comentary, products, finalPrice) => {
   
     const newOrder = {
-        orderNro,
         email,
         name,
         surname, 
         phone, 
-        dniCuit, 
+        dni, 
         street, 
-        numberStreet, 
+        number, 
         floor, 
-        aparment, 
+        apartment, 
         province, 
         city, 
         comentary, 

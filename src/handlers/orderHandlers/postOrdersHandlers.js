@@ -1,16 +1,11 @@
 const postOrderCtrl = require('../../controllers/orderCtrls/postOrderCtrl');
 
 const postOrdersHandler = async (req, res) => {
-  const { orderNro, email, name, surname, phone, dniCuit, street, numberStreet, floor, aparment, province, city, comentary, products, finalPrice } = req.body;
+  const { email, name, surname, phone, dni, street, number, floor, apartment, province, city, comentary, products, finalPrice } = req.body;
 
   try {
-    if (!orderNro || !email || !name || !surname || !phone || !dniCuit || !street || !province || !city || !products || !finalPrice) {
+    if (!email || !name || !surname || !phone || !dni || !street || !number || !province || !city || !products || !finalPrice) {
       return res.status(400).send({ error: 'Missing data' });
-    }
-
-    if (
-      typeof orderNro !== 'number') {
-      return res.status(400).send({ error: 'Incorrect DataType - orderNro' });
     }
     if (typeof email !== 'string') {
       return res.status(400).send({ error: 'Incorrect DataType - email' });
@@ -24,8 +19,8 @@ const postOrdersHandler = async (req, res) => {
     if (typeof phone !== 'string') {
       return res.status(400).send({ error: 'Incorrect DataType - phone' });
     }
-    if (typeof dniCuit !== 'string') {
-      return res.status(400).send({ error: 'Incorrect DataType - dniCuit' });
+    if (typeof dni !== 'string') {
+      return res.status(400).send({ error: 'Incorrect DataType - dni' });
     }
     if (typeof street !== 'string') {
         return res.status(400).send({ error: 'Incorrect DataType - street' });
@@ -43,7 +38,7 @@ const postOrdersHandler = async (req, res) => {
       return res.status(400).send({ error: 'Incorrect DataType - finalPrice' });
     }
 
-    const newOrder = await postOrderCtrl(orderNro, email, name, surname, phone, dniCuit, street, numberStreet, floor, aparment, province, city, comentary, products, finalPrice);
+    const newOrder = await postOrderCtrl(email, name, surname, phone, dni, street, number, floor, apartment, province, city, comentary, products, finalPrice);
 
     res.status(200).send(newOrder);
 
