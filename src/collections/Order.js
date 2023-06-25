@@ -4,7 +4,6 @@ const validator = require('validator');
 const orderSchema = new Schema({
     email:{
         type: String,
-        unique: true, 
         require: true,
         validate: {
             validator: function (value) {
