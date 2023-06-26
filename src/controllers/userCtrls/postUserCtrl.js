@@ -1,12 +1,13 @@
 require('../../db');
 const User = require('../../collections/User');
 
-const postUserCtrl = async (username, email, password, date) => {
+const postUserCtrl = async (name, nickname, email, picture, emailVerified) => {
     const user = new User({
-        username,
+        name,
+        nickname,
         email,
-        password,
-        date
+        picture,
+        emailVerified
     })
 
     await user.save();
