@@ -14,5 +14,6 @@ router.use('/product', productRouter);
 router.use('/subcategory', subcategory);
 router.use('/mercadopago', mercadoPagoRouter);
 router.use('/orders', orderFormRouter);
+router.use('/', (req, res) => {res.send('Mensajito')});
 
 module.exports = router;
