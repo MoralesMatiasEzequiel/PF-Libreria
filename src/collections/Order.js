@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose');  
 const validator = require('validator');
 
+const stateEnum = ['Procesando', 'En espera', 'Completado', 'Cancelado']
+
 const orderSchema = new Schema({
     email:{
         type: String,
@@ -129,8 +131,13 @@ const orderSchema = new Schema({
         //     },
         //     message: 'Invalid final price'
         // }
-    }
+    },
 
+    state: {
+        type: String,
+        enum: stateEnum,
+        default: 'Procesando'
+    }
 });
 
 module.exports = model('Order', orderSchema);
