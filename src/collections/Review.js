@@ -22,4 +22,4 @@ const reviewSchema = new Schema({
     
 });
 
-module.exports = model('Review', orderSchema);
+module.exports = model('Review', reviewSchema);
