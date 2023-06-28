@@ -34,11 +34,11 @@ const postReviewHandler = async (req, res) => {
         const newReview = await postReviewCtrl(user, rating, message);
         
         //A PARTIR DE ACÁ ES CÓDIGO PARA ASOCIAR LA REVIEW AL USER
-        const reviewId = newReview._id;
+        const reviews = [newReview._id];
         const _id = user;
-        // const saveReviewIntoUser = await putUserCtrl(_id, reviewId);
+        const saveReviewIntoUser = await putUserCtrl(_id, null, null, null, null, null, null, reviews, null, null);
 
-        return res.status(200).send(_id);
+        return res.status(200).send('La reseña ha sido creada');
         
     } catch (error) {
         res.status(500).send(error.message);
