@@ -10,7 +10,9 @@ const postUserCtrl = async (name, nickname, email, picture, emailVerified) => {
         emailVerified
     })
 
-    await user.save();
+    const newUser = await User.create(user);
+
+    return newUser;
 };
 
 module.exports = postUserCtrl;
