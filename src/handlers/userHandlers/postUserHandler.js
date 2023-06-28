@@ -23,12 +23,12 @@ const postUserHandler = async (req, res) => {
         const existUser = await getUserByEmailCtrl(email);
 
         if(existUser){
-            return res.status(200).send('User found on database');
+            return res.status(200).send(existUser);
         }
 
         const newUser = await postUserCtrl(name, nickname, email, picture, emailVerified)
        
-        res.status(200).send('User created!');
+        res.status(200).send(newUser);
 
     } catch (error) {
         res.status(500).send({ error: error.message});
