@@ -3,7 +3,7 @@ const putProductCtrl = require('../../controllers/productCtrls/putProductCtrl');
 const Product = require('../../collections/Product');
 
 const postProductHandler = async (req, res) => {
-  const { name, brand, stock, price, salePrice, image, description, rating, active, subcategories } = req.body;
+  const { name, brand, stock, price, salePrice, image, description, active, subcategories } = req.body;
 
   try {
     if (!name || !brand || !stock || !price || !image) {
@@ -16,9 +16,6 @@ const postProductHandler = async (req, res) => {
     }
     if (typeof image !== 'string') {
       return res.status(400).send({ error: 'Incorrect DataType - image' });
-    }
-    if (rating && typeof rating !== 'number') {
-      return res.status(400).send({ error: 'Incorrect DataType - rating' });
     }
     if (active && typeof active !== 'boolean') {
       return res.status(400).send({ error: 'Incorrect DataType - active' });
@@ -46,11 +43,11 @@ const postProductHandler = async (req, res) => {
       existingProduct.active = true;
       await existingProduct.save();
       const _id = existingProduct._id;
-      await putProductCtrl(_id, name, brand, stock, price, salePrice, image, description, rating, active, subcategories);
+      await putProductCtrl(_id, name, brand, stock, price, salePrice, image, description, active, subcategories);
       return res.status(200).send(`El producto ${existingProduct.name} ha sido reactivado y actualizado.`);
     }
 
-    const newProduct = await postProductCtrl(name, brand, stock, price, salePrice, image, description, rating, active, subcategories);
+    const newProduct = await postProductCtrl(name, brand, stock, price, salePrice, image, description, active, subcategories);
 
     res.status(200).send(newProduct);
 
