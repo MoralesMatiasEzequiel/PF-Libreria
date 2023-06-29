@@ -67,7 +67,33 @@ const productSchema = new Schema({
     rating: {
         type: Number,
         min: 0,
-        max: 5
+        max: 5,
+        default: 0
+    },
+    
+    oneStarReviews: {
+        type: Number,
+        default: 0
+    },
+
+    twoStarsReviews: {
+        type: Number,
+        default: 0
+    },
+
+    threeStarsReviews: {
+        type: Number,
+        default: 0
+    },
+
+    fourStarsReviews: {
+        type: Number,
+        default: 0
+    },
+
+    fiveStarsReviews: {
+        type: Number,
+        default: 0
     },
 
     active: {
