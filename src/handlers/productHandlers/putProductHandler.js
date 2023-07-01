@@ -26,10 +26,10 @@ const putProductHandler = async (req, res) => {
       
       const productUpdate = await putProductCtrl(_id, name, brand, stock, price, salePrice, image, description, oneStarReviews, twoStarsReviews, threeStarsReviews, fourStarsReviews, fiveStarsReviews, active, subcategories)
     
-      return res.status(200).send(`El producto ha sido actualizado`);
+      return res.status(200).json(productUpdate);
 
     } catch (error) {
-        return res.status(500).send(error.message);
+        return res.status(500).json(error.message);
     }
 };
 
