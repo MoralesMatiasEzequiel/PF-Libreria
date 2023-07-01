@@ -1,6 +1,6 @@
 const Product = require('../../collections/Product');
 
-const postProductCtrl = async (name, brand, stock, price, salePrice, image, description, rating, active, subcategories) => {
+const postProductCtrl = async (name, brand, stock, price, salePrice, image, description, active, subcategories) => {
   
     const newProduct = {
       name,
@@ -10,7 +10,6 @@ const postProductCtrl = async (name, brand, stock, price, salePrice, image, desc
       salePrice,
       image,
       description,
-      rating,
       active,
       subcategories
     }
