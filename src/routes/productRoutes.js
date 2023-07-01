@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getProductsHandler, getProductByIdHandler, getProductsFilteredHandler, getProductsSaleHandler, getProductsRatingHandler, postProductHandler, putProductHandler, deleteProductHandler, resetRatingHandler } = require('../handlers/productHandlers/indexHandlers');
+const { getProductsHandler, getProductByIdHandler, getProductsFilteredHandler, getProductsSaleHandler, getProductsRatingHandler, postProductHandler, putProductHandler, deleteProductHandler, resetRatingHandler, putRatingProductHandler } = require('../handlers/productHandlers/indexHandlers');
 
 const productRouter = Router();
 
@@ -21,7 +21,17 @@ productRouter.get('/:id', getProductByIdHandler);
 
 productRouter.post('/', postProductHandler); // Usa el controlador modificado
 
-productRouter.put('/', putProductHandler);
+productRouter.put('/', async (req, res) => {
+  
+  const { oneStarReviews, twoStarsReviews, threeStarsReviews, fourStarsReviews, fiveStarsReviews} = req.body;
+
+  if(oneStarReviews || twoStarsReviews || threeStarsReviews || fourStarsReviews || fiveStarsReviews){
+
+    return putRatingProductHandler(req, res);
+  }
+  return putProductHandler(req, res);
+
+});
 
 //productRouter.put('/', resetRatingHandler);
 
