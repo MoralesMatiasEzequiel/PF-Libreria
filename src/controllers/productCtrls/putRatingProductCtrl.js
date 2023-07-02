@@ -33,7 +33,9 @@ const putRatingProductCtrl = async (_id, oneStarReviews, twoStarsReviews, threeS
         {$set: {rating, oneStarReviews, twoStarsReviews, threeStarsReviews, fourStarsReviews, fiveStarsReviews}}
     );
 
-    return updated;
+    const productUpdated = await getProductByIdCtrl(_id);
+
+    return productUpdated.rating;
 };
 
 module.exports = putRatingProductCtrl;
