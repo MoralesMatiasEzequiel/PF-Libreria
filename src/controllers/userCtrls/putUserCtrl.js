@@ -40,7 +40,8 @@ const putUserCtrl = async (_id, name, nickname, surname, picture, emailVerified,
         update.favorites = favorites;
     }
 
-    const updated = await User.findOneAndUpdate({ _id }, update, { new: true });
+    // const updated = await User.findOneAndUpdate({ _id }, update, { new: true });
+    const updated = await User.findOneAndUpdate({ _id }, { $set: { active } }, { new: true });
 
     return updated;
 };
