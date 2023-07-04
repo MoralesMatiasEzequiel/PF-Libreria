@@ -21,7 +21,7 @@ const putUserHandler = async (req, res) => {
 
       const userUpdate = await putUserCtrl(_id, name, nickname, surname, picture, emailVerified, active, reviews, favorites, orders)
     
-      res.status(200).send(`El usuario ha sido actualizado`);
+      res.status(200).send(`El estado del usuario ha sido actualizado`);
 
     } catch (error) {
         res.status(500).send({ error: error.message })
