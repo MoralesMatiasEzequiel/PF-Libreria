@@ -9,6 +9,7 @@ const deleteProductHandler = require('./deleteProductHandler');
 const resetRatingHandler = require('./resetRatingHandler');
 const putRatingProductHandler = require('./putRatingProductHandler');
 const getProductsAllHandler = require('./getProductsAllHandler');
+const getProductsFilteredAllHandler = require('./getProductsFilteredAllHandler');
 
 
 module.exports = {
@@ -22,5 +23,6 @@ module.exports = {
     deleteProductHandler,
     resetRatingHandler,
     putRatingProductHandler,
-    getProductsAllHandler
+    getProductsAllHandler,
+    getProductsFilteredAllHandler
 }
