@@ -9,7 +9,6 @@ const getCreateOrderHandler = async (req, res) => {
             return res.status(400).json({ error: 'Missing data required' });
         }
 
-        // console.log(data);
         const createOrder = await getCreateOrderCtrls(data);
         const paymentLink = createOrder.body.init_point;
 
