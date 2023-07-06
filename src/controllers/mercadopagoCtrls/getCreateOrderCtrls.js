@@ -6,6 +6,15 @@ const getCreateOrderCtrls = async (data) => {
     });
     // console.log(data);
     const items = data.map((item) => {
+
+      if(item.salePrice < item.price && item.salePrice > 0){
+        return {
+          title: item.name,
+          unit_price: item.salePrice,
+          currency_id: "ARS",
+          quantity: 1,
+        };
+      }      
       return {
         title: item.name,
         unit_price: item.price,
