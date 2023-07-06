@@ -1,5 +1,5 @@
 const postReviewCtrl = require('../../controllers/reviewCtrls/postReviewCtrl');
-const putUserCtrl = require('../../controllers/userCtrls/putUserCtrl');
+const putUserReviewCtrl = require('../../controllers/userCtrls/putUserReviewCtrl');
 
 const postReviewHandler = async (req, res) => {
 
@@ -36,7 +36,7 @@ const postReviewHandler = async (req, res) => {
         //A PARTIR DE ACÁ ES CÓDIGO PARA ASOCIAR LA REVIEW AL USER
         const reviews = [newReview._id];
         const _id = user;
-        const saveReviewIntoUser = await putUserCtrl(_id, null, null, null, null, null, null, reviews, null, null);
+        const saveReviewIntoUser = await putUserReviewCtrl(_id, reviews);
 
         return res.status(200).send('La reseña ha sido creada');
         
